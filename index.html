@@ -1,0 +1,455 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoodZ</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .carousel-item {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .carousel-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .carousel-caption {
+            z-index: 2;
+        }
+
+        .rating-image {
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .rating-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .rating-image:hover img {
+            transform: scale(1.1);
+        }
+        .rating-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .rating-image:hover .rating-overlay {
+            opacity: 1;
+        }
+        .carousel-item {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .carousel-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .carousel-caption {
+            z-index: 2;
+        }
+
+        .rating-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .rating-image img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .rating-image:hover img {
+            transform: scale(1.1);
+        }
+        .rating-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .rating-image:hover .rating-overlay {
+            opacity: 1;
+        }
+        .rating-row .rating {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <!-- Logo on the left -->
+            <a class="navbar-brand" href="#">
+                <img src="./content/spp.webp" alt="Logo" width="80" height="40">
+            </a>
+
+            <!-- Toggle button for tablets/mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Our Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="#service1">Service 1</a></li>
+                            <li><a class="dropdown-item" href="#service2">Service 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Our Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact Us</a>
+                    </li>
+                </ul>
+                <!-- Dark Mode Toggle Button -->
+                <button class="btn btn-dark" id="darkModeToggle">Dark Mode</button>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- Hero Section Slider -->
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('./content/2.webp');">
+                <div class="carousel-caption text-center text-white">
+
+                    <h1>Welcome to Our Website</h1>
+                    <p>Satisfy Every Craving: Bulk Food for Every Taste!</p>
+                    <p>Your Feast Awaits!</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('./content/1.webp');">
+                <div class="carousel-caption text-center text-white">
+                    <h1>Our Services</h1>
+                    <p>Feeding the Fun: Order in Bulk and Celebrate Together!</p>
+                    <p>Order Big, Celebrate Bigger!</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('./content/biryani.webp');">
+                <div class="carousel-caption text-center text-white">
+                    <h1>Get in Touch</h1>
+                    <p>Gather Around the Table: Bulk Orders for Memorable Moments!</p>
+                    <p>Taste the Togetherness!</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- About Section -->
+    <section class="container my-5" id="about">
+        <div class="row align-items-center">
+            <!-- Left Side -->
+            <div class="col-md-6">
+                <h2 class="mb-4">About Us</h2>
+                <ul class="nav nav-tabs" id="aboutTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="company-tab" data-bs-toggle="tab" data-bs-target="#company" type="button" role="tab" aria-controls="company" aria-selected="true">Our Mission</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="vision-tab" data-bs-toggle="tab" data-bs-target="#vision" type="button" role="tab" aria-controls="vision" aria-selected="false">Our Vision</button>
+                    </li>
+                </ul>
+                <div class="tab-content mt-3" id="aboutTabsContent">
+                    <div class="tab-pane fade show active" id="company" role="tabpanel" aria-labelledby="company-tab">
+                        <h3>Elevate Your Gatherings with Our Bulk Dishes!</h3>
+                        <p>Planning a party, corporate event, or family gathering? Make it unforgettable with our delicious bulk dishes! Our expertly crafted meals are perfect for any occasion, offering a variety of flavors that cater to all tastes. From savory entrees to mouthwatering sides and delectable desserts, we provide generous portions that ensure everyone leaves satisfied. Enjoy the convenience of hassle-free catering, allowing you to focus on what truly matters—spending time with your guests. Order now and experience the joy of sharing great food with great company!</p>
+                        <a href="#" class="btn btn-secondary">Learn More</a>
+                    </div>
+                    <div class="tab-pane fade" id="vision" role="tabpanel" aria-labelledby="vision-tab">
+                        <h3>Nourishing Connections Through Shared Meals</h3>
+                        <p>At Goodz, we believe that great food brings people together. Our vision is to transform gatherings into memorable experiences by providing high-quality bulk food items that cater to every palate. We strive to make ordering effortless and enjoyable, ensuring that every meal not only satisfies hunger but also fosters connection and joy among friends, family, and colleagues. Join us in celebrating the art of sharing delicious food, and let’s create unforgettable moments together!</p>
+                        <a href="#" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Side -->
+            <div class="row-md-3">
+                <img src="./content/intro.webp" alt="About Us" class="img-fluid rounded">
+            </div>
+        </div>
+    </section>
+
+     <!-- Our Services Section -->
+     <section class="container my-5" id="services">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Our Services</h2>
+            <h5>Your Trust, Our Commitment</h5>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="bi bi-gear-fill display-4 text-primary mb-3"></i>
+                        <h5 class="card-title">On-Demand Bulk Delivery:</h5>
+                        <p class="card-text">Offer quick, large-scale food delivery for impromptu meetings, gatherings, or events.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="bi bi-briefcase-fill display-4 text-primary mb-3"></i>
+                        <h5 class="card-title">Special Occasion Menus:</h5>
+                        <p class="card-text">Design themed menus for occasions like holidays, festivals, or corporate celebrations.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+             <div class="col-md-4">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="bi bi-cloud-fill display-4 text-primary mb-3"></i>
+                        <h5 class="card-title">Multi-Cuisine Options:
+                        </h5>
+                        <p class="card-text">Cater to diverse tastes by offering multiple cuisines in one order (e.g., Asian, Italian, and Mexican).</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="col-md-4">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="bi bi-lightbulb-fill display-4 text-primary mb-3"></i>
+                        <h5 class="card-title">Service 4</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="bi bi-people-fill display-4 text-primary mb-3"></i>
+                        <h5 class="card-title">Service 5</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4"> --> 
+                <!-- <div class="card text-center h-100"> -->
+                    <!-- <div class="card-body">
+                        <i class="bi bi-globe display-4 text-primary mb-3"></i>
+                        <h5 class="card-title">Service 6</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <a href="#" class="btn btn-primary">Read More</a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Ratings Section -->
+    <section class="container my-5" id="ratings">
+        <div class="text-center mb-5">
+            <h2 class="mb-3">Our Ratings</h2>
+        </div>
+        <div class="row rating-row">
+            <div class="col-md-4 rating">
+                <div class="rating-image">
+                    <img src="rating1.jpg" alt="Rating 1">
+                    <div class="rating-overlay">
+                        <p>Rating 1 Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 rating">
+                <div class="rating-image">
+                    <img src="rating2.jpg" alt="Rating 2">
+                    <div class="rating-overlay">
+                        <p>Rating 2 Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 rating">
+                <div class="rating-image">
+                    <img src="rating3.jpg" alt="Rating 3">
+                    <div class="rating-overlay">
+                        <p>Rating 3 Description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row rating-row">
+            <div class="col-md-4 rating">
+                <div class="rating-image">
+                    <img src="rating4.jpg" alt="Rating 4">
+                    <div class="rating-overlay">
+                        <p>Rating 4 Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 rating">
+                <div class="rating-image">
+                    <img src="rating5.jpg" alt="Rating 5">
+                    <div class="rating-overlay">
+                        <p>Rating 5 Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 rating">
+                <div class="rating-image">
+                    <img src="rating6.jpg" alt="Rating 6">
+                    <div class="rating-overlay">
+                        <p>Rating 6 Description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row rating-row">
+            <div class="col-md-4 rating">
+                <div class="rating-image">
+                    <img src="rating7.jpg" alt="Rating 7">
+                    <div class="rating-overlay">
+                        <p>Rating 7 Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 rating">
+                <div class="rating-image">
+                    <img src="rating8.jpg" alt="Rating 8">
+                    <div class="rating-overlay">
+                        <p>Rating 8 Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 rating">
+                <div class="rating-image">
+                    <img src="rating9.jpg" alt="Rating 9">
+                    <div class="rating-overlay">
+                        <p>Rating 9 Description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <p>&copy; 2024 Your Company</p>
+            </div>
+            <div class="col-md-6">
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <a href="https://www.instagram.com/goodzindia/" class="text-white" target="_blank">
+                    <i class="fab fa-instagram fa-2x"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://api.whatsapp.com/send/?phone=919381027109&text&type=phone_number&app_absent=0" class="text-white" target="_blank">
+                    <i class="fab fa-whatsapp fa-2x"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://www.linkedin.com/company/goodzindia/" class="text-white" target="_blank">
+                    <i class="fab fa-linkedin fa-2x"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-md-6">
+              <p>Email: <a href="mailto:your.email@example.com" class="text-white">info@goodz.in</a></p>
+            </div>
+            <div class="col-md-6">
+              <p>Phone: <a href="tel:+1234567890" class="text-white">+91 770 230 2357</a></p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('bg-dark');
+            document.body.classList.toggle('text-white');
+            darkModeToggle.textContent = document.body.classList.contains('bg-dark') ? 'Light Mode' : 'Dark Mode';
+        });
+    </script>
+
+
+    <!-- Bootstrap JS Bundle (with Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
